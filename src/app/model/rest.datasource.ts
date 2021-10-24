@@ -50,7 +50,7 @@ export class RestDataSource{
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.http.delete<Product>(`${this.baseUrl}product/${id}`,
+    return this.http.delete<Product>(`${this.baseUrl}product/delete/${id}`,
       this.getOptions());
   }
 
@@ -71,8 +71,7 @@ export class RestDataSource{
   private getOptions() {
     return {
       headers: new HttpHeaders({
-        "Authorization": `Bearer<${this.auth_token}>`,
-        "Access-Control-Allow-Origin": "http://restapi.localhost"
+        "Authorization": `Bearer ${this.auth_token}`
       })
     }
   }
